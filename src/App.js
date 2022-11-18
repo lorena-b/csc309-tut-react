@@ -7,7 +7,10 @@ class App extends React.Component {
     constructor() {
         super();
         // 2. TODO: create the state variable where result = "" and resetOnNext =  false
-        
+        this.state = {
+            result: "",
+            resetOnNext: false
+        }
     }
 
     onClick(button) {
@@ -20,10 +23,16 @@ class App extends React.Component {
         else {
             if (this.state.resetOnNext) {
                 // 4. TODO: set the state of result to button and resetOnNext to false
+                this.setState({
+                    result: button,
+                    resetOnNext: false
+                });
                 
             } else {
                 // 5. TODO: set the state of result to result + button
-              
+                this.setState({
+                    result: this.state.result + button
+                });
             }
         }
     };
@@ -77,7 +86,8 @@ class App extends React.Component {
                   {/* 3. TODO:  Create the Display and Board tags. 
                   Look at Board and Display and see what you need to pass in.
                   npm start after you implement this, you should see the calculator. */}
-
+                    <Display result={this.state.result}/>
+                    <Board onClick={(button) => this.onClick(button)}/>
               </div>
           </div>
       );

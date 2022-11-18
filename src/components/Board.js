@@ -13,6 +13,9 @@ class Board extends React.Component {
     // 1. TODO: create and implement the function renderSquare
     // Hint: components can be used as tags
     // Hint: Look at the props of Square, what do we need to pass in?
+    renderSquare(value) {
+      return <Square value={value} onClick={() => this.props.onClick(value)} />;
+    }
 
     render() {
       return (
